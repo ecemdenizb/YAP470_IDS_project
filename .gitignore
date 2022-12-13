@@ -1,0 +1,12 @@
+
+.DS_Store
+MachineLearningCVE/.DS_Store
+MachineLearningCVE/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+MachineLearningCVE/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+MachineLearningCVE/Friday-WorkingHours-Morning.pcap_ISCX.csv
+MachineLearningCVE/Monday-WorkingHours.pcap_ISCX.csv
+MachineLearningCVE/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
+MachineLearningCVE/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
+MachineLearningCVE/Tuesday-WorkingHours.pcap_ISCX.csv
+MachineLearningCVE/Wednesday-workingHours.pcap_ISCX.csv
+test_dataset.csv
