@@ -1,0 +1,333 @@
+<html>
+  <head>
+    <title>Intrusion Detection</title>
+  </head>
+  <body bgcolor="#E47F6A">
+      <h1>INTRUSION DETECTION</h1>
+      <text>Please enter the features for prediction</text>
+    <form action="{{ url_for('predict')}}"method="post">
+      <div>
+        <label for="input-1">Destination Port</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">Flow Duration</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">Total Fwd Packets</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">Total Backward Packets</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Total Length of Fwd Packets</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Total Length of Bwd Packets</label>
+        <input id="input-6" type="text" size=10 />
+      </div>
+      <div >
+        <label for="input-1">Fwd Packet Length Max</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">Fwd Packet Length Min</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">Fwd Packet Length Mean</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">Fwd Packet Length Std</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Bwd Packet Length Max</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Bwd Packet Length Min</label>
+        <input id="input-6" type="text" size=10 />
+      </div>
+      <div>
+        <label for="input-1">Bwd Packet Length Mean</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">Bwd Packet Length Std</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">Flow Bytes/s</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">Flow Packets/s</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Flow IAT Mean</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Flow IAT Std</label>
+        <input id="input-6" type="text" size=10 />
+        </div>
+      </div>
+      <div>
+        <label for="input-1">Flow IAT Max</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">Flow IAT Min</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">Fwd IAT Total</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">Fwd IAT Mean</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Fwd IAT Std</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Fwd IAT Max</label>
+        <input id="input-6" type="text" size=10 />
+      </div>
+      <div>
+        <label for="input-1">Fwd IAT Min</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">Bwd IAT Total</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">Bwd IAT Mean</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">Bwd IAT Std</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Bwd IAT Max</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Bwd IAT Min</label>
+        <input id="input-6" type="text" size=10 />
+      </div>
+      <div>
+        <label for="input-1">Fwd PSH Flags</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">Bwd PSH Flags</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">Fwd URG Flags</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">Bwd URG Flags</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Fwd Header Length</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Bwd Header Length</label>
+        <input id="input-6" type="text" size=10 />
+      </div>
+      <div>
+        <label for="input-1">Fwd Packets/s</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">Bwd Packets/s</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">Min Packet Length</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">Max Packet Length</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Packet Length Mean</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Packet Length Std</label>
+        <input id="input-6" type="text" size=10 />
+        <div>
+      </div>
+      <div>
+        <label for="input-1">Packet Length Variance</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">FIN Flag Count</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">SYN Flag Count</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">RST Flag Count</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">PSH Flag Count</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">ACK Flag Count</label>
+        <input id="input-6" type="text" size=10 />
+      </div>
+      <div>
+        <label for="input-1">URG Flag Count</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">CWE Flag Count</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">ECE Flag Count</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">Down/Up Ratio</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Average Packet Size</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Avg Fwd Segment Size</label>
+        <input id="input-6" type="text" size=10 />
+        </div>
+      </div>
+      <div>
+        <label for="input-1">Avg Bwd Segment Size</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">Fwd Header Length.1</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">Fwd Avg Bytes/Bulk</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">Fwd Avg Packets/Bulk</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Fwd Avg Bulk Rate</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Bwd Avg Bytes/Bulk</label>
+        <input id="input-6" type="text" size=10 />
+      </div>
+      <div>
+        <label for="input-1">Bwd Avg Packets/Bulk</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">Bwd Avg Bulk Rate</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">Subflow Fwd Packets</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">Subflow Fwd Bytes</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Subflow Bwd Packets</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Subflow Bwd Bytes</label>
+        <input id="input-6" type="text" size=10 />
+      </div>
+      <div>
+        <label for="input-1">Init_Win_bytes_forward</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">Init_Win_bytes_backward</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">act_data_pkt_fwd</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">min_seg_size_forward</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Active Mean</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Active Std</label>
+        <input id="input-6" type="text" size=10 />
+      </div>
+      <div>
+        <label for="input-1">Active Max</label>
+        <input id="input-1" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-2">Active Min</label>
+        <input id="input-2" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-3">Idle Mean</label>
+        <input id="input-3" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-4">Idle Std</label>
+        <input id="input-4" type="text"  size=10/>
+        </div>
+        <div>
+        <label for="input-5">Idle Max</label>
+        <input id="input-5" type="text" size=10 />
+        </div>
+        <div>
+        <label for="input-6">Idle Min</label>
+        <input id="input-6" type="text" size=10 />
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </div>
+    </form>
+      <br>
+      <br>
+   {{ prediction_text }}
+  </body>
+</html>
+
