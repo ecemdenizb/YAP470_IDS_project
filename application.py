@@ -12,7 +12,7 @@ second_predict = pickle.load(open("second_predict.pkl", "rb"))
 
 @flask_app.route("/")
 def Home():
-    return render_template("website.html")
+    return render_template("IDS.html")
 
 
 @flask_app.route("/predict", methods=["POST"])
@@ -30,7 +30,7 @@ def predict():
     else:
         final_prediction = labels[second_predict.predict(encoded)]
 
-    return render_template("website.html", prediction_text="Website activity is {}".format(final_prediction))
+    return render_template("IDS.html", prediction_text="Website activity is {}".format(final_prediction))
 
 
 if __name__ == "__main__":

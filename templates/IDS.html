@@ -1,0 +1,98 @@
+<html>
+<head>
+    <title>Intrusion Detection System</title>
+</head>
+<body>
+    <div class="login">
+        <h1>INTRUSION DETECTION SYSTEM</h1>
+        <p>Please enter the features for prediction</p>
+        <form action="{{ url_for('predict')}}"method="post">
+            <div>
+            <input type="text" name="Destination_Port" size = 50
+                   placeholder="Destination Port (Range: 0 - 65533)" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Flow_Duration" size = 50
+                   placeholder="Flow Duration (Range: -13 - 119999998 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Total_Fwd_Packets" size = 50
+                   placeholder="Total Fwd Packets (Range: 1 - 207964 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Total_Backward_Packets" size = 50
+                   placeholder="Total Backward Packets (Range: 0 - 284602 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Total_Length_of_Fwd_Packets" size = 50
+                   placeholder="Total Length of Fwd Packets (Range: 0 - 12900000 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Total_Length_of_Bwd_Packets" size = 50
+                   placeholder="Total Length of Bwd Packets (Range: 0 - 627000000 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Fwd_Packet_Length_Max" size = 50
+                   placeholder="Fwd Packet Length Max (Range: 0 - 24820 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Fwd_Packet_Length_Min" size = 50
+                   placeholder="Fwd Packet Length Min (Range: 0 - 2325 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Fwd_Packet_Length_Mean" size = 50
+                   placeholder="Fwd Packet Length Mean (Range: 0.0 - 5940.857143 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Fwd_Packet_Length_Std" size = 50
+                   placeholder="Fwd Packet Length Std (Range: 0.0 - 7049.469004 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Bwd_Packet_Length_Max" size = 50
+                   placeholder="Bwd Packet Length Max (Range: 0 - 19530 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Bwd_Packet_Length_Min" size = 50
+                   placeholder="Bwd Packet Length Min (Range: 0 - 2896 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Bwd_Packet_Length_Mean" size = 50
+                   placeholder="Bwd Packet Length Mean (Range: 0.0 - 5800.5 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Bwd_Packet_Length_Std" size = 50
+                   placeholder="Bwd Packet Length Std (Range: 0.0 - 8194.660487 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Flow_Bytes_s" size = 50
+                   placeholder="Flow Bytes/s (Range: -261000000.0 - 2070000000.0 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Flow_Packets_s" size = 50
+                   placeholder="Flow Packets/s (Range: -2000000.0 - 4000000.0 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Flow_IAT_Mean" size = 50
+                   placeholder="Flow IAT Mean (Range: -13.0 - 120000000.0 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Flow_IAT_Std" size = 50
+                   placeholder="Flow IAT Std (Range: 0.0 - 84800000.0 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Flow IAT Max" size = 50
+                   placeholder="Flow IAT Max (Range: -13 - 120000000 )" required="required" />
+            </div>
+            <div>
+            <input type="text" name="Flow IAT Max" size = 50
+                   placeholder="Flow IAT Max (Range: -13 - 120000000 )" required="required" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+    <br>
+    <br>
+   {{ prediction_text }}
+    </div>
+</body>
+
+</html>

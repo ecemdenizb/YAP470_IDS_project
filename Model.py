@@ -7,28 +7,17 @@ import pandas as pd
 import numpy as np
 
 import tensorflow as tf
-from tensorflow.keras import layers, losses
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.layers import Input, Dense
-from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
-from tensorflow.keras import regularizers, Sequential
-from tensorflow.keras.optimizers import Adam
-from sklearn.linear_model import RidgeCV, ElasticNet, LassoCV
 from sklearn.model_selection import cross_val_score
 import xgboost as xgb
 from sklearn.model_selection import RepeatedStratifiedKFold
 from sklearn.metrics import confusion_matrix
-from sklearn.metrics import accuracy_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import classification_report, accuracy_score
 
 import matplotlib.pyplot as plt
-from matplotlib import gridspec
-
-from scipy import stats
 
 import pickle
 
@@ -321,7 +310,7 @@ x_train2, x_test2, y_train2, y_test2 = train_test_split(pred_anomaly_x, pred_ano
 print(np.unique(y_train2, return_counts=True))
 
 attack_predictor = xgb.XGBClassifier(n_estimators=100, max_depth=1, learning_rate=0.2, verbosity=0,
-                                     use_label_encoder=False, objective='multi:softmax')
+                                     objective='multi:softmax')
 
 cv = RepeatedStratifiedKFold(n_splits=5, random_state=12345)
 n_scores = cross_val_score(attack_predictor, x_train2, y_train2, scoring='accuracy', cv=cv, error_score='raise')
