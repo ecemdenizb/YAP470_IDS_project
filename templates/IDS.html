@@ -1,0 +1,252 @@
+<html>
+<head>
+    <title>Intrusion Detection System</title>
+</head>
+<body>
+<div class="login">
+    <h1>INTRUSION DETECTION SYSTEM</h1>
+    <p>Please enter the features for prediction</p>
+    <form action="{{ url_for('predict')}}" method="post">
+        <div>
+            <input type="number" name="Destination Port" style="width: 40em" placeholder="Destination Port (Range:  0  -  65535 )" required="required" />
+        </div>
+        <div>
+            <input type="number" name="Flow Duration" style="width: 40em" placeholder="Flow Duration (Range:  -13  -  119999998 )" required="required" />
+        </div>
+        <div>
+            <input type="number" name="Total Fwd Packets" style="width: 40em" placeholder="Total Fwd Packets (Range:  1  -  219759 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Total Backward Packets" style="width: 40em" placeholder="Total Backward Packets (Range:  0  -  291922 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Total Length of Fwd Packets" style="width: 40em" placeholder=" Total Length of Fwd Packets (Range:  0  -  12900000 )" required = "required" />
+        </div>
+        <div>
+            <input type="number" name="Total Length of Bwd Packets" style="width: 40em" placeholder="Total Length of Bwd Packets (Range:  0  -  655453030 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd Packet Length Max" style="width: 40em" placeholder="Fwd Packet Length Max (Range:  0  -  24820 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd Packet Length Min" style="width: 40em" placeholder="Fwd Packet Length Min (Range:  0  -  2325 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd Packet Length Mean" style="width: 40em" placeholder="Fwd Packet Length Mean (Range:  0.0  -  5940.857143 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd Packet Length Std" style="width: 40em" placeholder="Fwd Packet Length Std (Range:  0.0  -  7125.5968458437 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Bwd Packet Length Max" style="width: 40em" placeholder=" Bwd Packet Length Max (Range:  0  -  19530 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd Packet Length Min" style="width: 40em" placeholder="Bwd Packet Length Min (Range:  0  -  2896 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd Packet Length Mean" style="width: 40em" placeholder="Bwd Packet Length Mean (Range:  0.0  -  5800.5 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd Packet Length Std" style="width: 40em" placeholder="Bwd Packet Length Std (Range:  0.0  -  8194.660487 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Flow Bytes/s" style="width: 40em" placeholder=" Flow Bytes/s (Range:  -261000000.0  -  2071000000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Flow Packets/s" style="width: 40em" placeholder="Flow Packets/s (Range:  -2000000.0  -  4000000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Flow IAT Mean" style="width: 40em" placeholder="Flow IAT Mean (Range:  -13.0  -  120000000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Flow IAT Std" style="width: 40em" placeholder="Flow IAT Std (Range:  0.0  -  84800261.5664079 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Flow IAT Max" style="width: 40em" placeholder="Flow IAT Max (Range:  -13  -  120000000 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Flow IAT Min" style="width: 40em" placeholder="Flow IAT Min (Range:  -14  -  120000000 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Fwd IAT Total" style="width: 40em" placeholder=" Fwd IAT Total (Range:  0  -  120000000 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd IAT Mean" style="width: 40em" placeholder="Fwd IAT Mean (Range:  0.0  -  120000000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd IAT Std" style="width: 40em" placeholder="Fwd IAT Std (Range:  0.0  -  84602929.2769822 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd IAT Max" style="width: 40em" placeholder="Fwd IAT Max (Range:  0  -  120000000 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd IAT Min" style="width: 40em" placeholder="Fwd IAT Min (Range:  -12  -  120000000 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Bwd IAT Total" style="width: 40em" placeholder=" Bwd IAT Total (Range:  0  -  120000000 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd IAT Mean" style="width: 40em" placeholder="Bwd IAT Mean (Range:  0.0  -  120000000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd IAT Std" style="width: 40em" placeholder="Bwd IAT Std (Range:  0.0  -  84418013.7826341 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd IAT Max" style="width: 40em" placeholder="Bwd IAT Max (Range:  0  -  120000000 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd IAT Min" style="width: 40em" placeholder="Bwd IAT Min (Range:  0  -  120000000 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Fwd PSH Flags" style="width: 40em" placeholder=" Fwd PSH Flags (Range:  0  -  1 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd PSH Flags" style="width: 40em" placeholder="Bwd PSH Flags (Range:  0  -  0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd URG Flags" style="width: 40em" placeholder="Fwd URG Flags (Range:  0  -  1 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd URG Flags" style="width: 40em" placeholder="Bwd URG Flags (Range:  0  -  0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd Header Length" style="width: 40em" placeholder="Fwd Header Length (Range:  -32212234632  -  4644908 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd Header Length" style="width: 40em" placeholder="Bwd Header Length (Range:  -1073741320  -  5838440 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Fwd Packets/s" style="width: 40em" placeholder=" Fwd Packets/s (Range:  0.0  -  3000000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd Packets/s" style="width: 40em" placeholder="Bwd Packets/s (Range:  0.0  -  2000000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Min Packet Length" style="width: 40em" placeholder="Min Packet Length (Range:  0  -  1448 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Max Packet Length" style="width: 40em" placeholder="Max Packet Length (Range:  0  -  24820 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Packet Length Mean" style="width: 40em" placeholder="Packet Length Mean (Range:  0.0  -  3337.142857 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Packet Length Std" style="width: 40em" placeholder="Packet Length Std (Range:  0.0  -  4731.522394 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Packet Length Variance" style="width: 40em" placeholder="Packet Length Variance (Range:  0.0  -  22400000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" FIN Flag Count" style="width: 40em" placeholder=" FIN Flag Count (Range:  0  -  1 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="SYN Flag Count" style="width: 40em" placeholder="SYN Flag Count (Range:  0  -  1 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="RST Flag Count" style="width: 40em" placeholder="RST Flag Count (Range:  0  -  1 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="PSH Flag Count" style="width: 40em" placeholder="PSH Flag Count (Range:  0  -  1 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="ACK Flag Count" style="width: 40em" placeholder="ACK Flag Count (Range:  0  -  1 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="URG Flag Count" style="width: 40em" placeholder="URG Flag Count (Range:  0  -  1 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="CWE Flag Count" style="width: 40em" placeholder="CWE Flag Count (Range:  0  -  1 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="ECE Flag Count" style="width: 40em" placeholder="ECE Flag Count (Range:  0  -  1 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Down/Up Ratio" style="width: 40em" placeholder="Down/Up Ratio (Range:  0  -  156 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Average Packet Size" style="width: 40em" placeholder="Average Packet Size (Range:  0.0  -  3893.333333 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Avg Fwd Segment Size" style="width: 40em" placeholder="Avg Fwd Segment Size (Range:  0.0  -  5940.857143 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Avg Bwd Segment Size" style="width: 40em" placeholder="Avg Bwd Segment Size (Range:  0.0  -  5800.5 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd Header Length.1" style="width: 40em" placeholder="Fwd Header Length.1 (Range:  -32212234632  -  4644908 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Fwd Avg Bytes/Bulk" style="width: 40em" placeholder=" Fwd Avg Bytes/Bulk (Range:  0  -  0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd Avg Packets/Bulk" style="width: 40em" placeholder="Fwd Avg Packets/Bulk (Range:  0  -  0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Fwd Avg Bulk Rate" style="width: 40em" placeholder="Fwd Avg Bulk Rate (Range:  0  -  0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd Avg Bytes/Bulk" style="width: 40em" placeholder="Bwd Avg Bytes/Bulk (Range:  0  -  0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Bwd Avg Packets/Bulk" style="width: 40em" placeholder="Bwd Avg Packets/Bulk (Range:  0  -  0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Bwd Avg Bulk Rate" style="width: 40em" placeholder=" Bwd Avg Bulk Rate (Range:  0  -  0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Subflow Fwd Packets" style="width: 40em" placeholder=" Subflow Fwd Packets (Range:  1  -  219759 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Subflow Fwd Bytes" style="width: 40em" placeholder="Subflow Fwd Bytes (Range:  0  -  12870338 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Subflow Bwd Packets" style="width: 40em" placeholder="Subflow Bwd Packets (Range:  0  -  291922 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Subflow Bwd Bytes" style="width: 40em" placeholder="Subflow Bwd Bytes (Range:  0  -  655453030 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Init_Win_bytes_forward" style="width: 40em" placeholder=" Init_Win_bytes_forward (Range:  -1  -  65535 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Init_Win_bytes_backward" style="width: 40em" placeholder="Init_Win_bytes_backward (Range:  -1  -  65535 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="act_data_pkt_fwd" style="width: 40em" placeholder="act_data_pkt_fwd (Range:  0  -  213557 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="min_seg_size_forward" style="width: 40em" placeholder="min_seg_size_forward (Range:  -536870661  -  138 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Active Mean" style="width: 40em" placeholder=" Active Mean (Range:  0.0  -  110000000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Active Std" style="width: 40em" placeholder="Active Std (Range:  0.0  -  74200000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Active Max" style="width: 40em" placeholder="Active Max (Range:  0  -  110000000 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Active Min" style="width: 40em" placeholder="Active Min (Range:  0  -  110000000 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name=" Idle Mean" style="width: 40em" placeholder=" Idle Mean (Range:  0.0  -  120000000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Idle Std" style="width: 40em" placeholder="Idle Std (Range:  0.0  -  76900000.0 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Idle Max" style="width: 40em" placeholder="Idle Max (Range:  0  -  120000000 )" required="required"/>
+        </div>
+        <div>
+            <input type="number" name="Idle Min" style="width: 40em" placeholder="Idle Min (Range:  0  -  120000000 )" required="required"/>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    <br>
+    <br>
+    {{ prediction_text }}
+</div>
+</body>
+
+</html>
