@@ -20,6 +20,8 @@ def predict():
     labels = ['Bot', 'DDoS', 'DoS GoldenEye', 'DoS Hulk', 'DoS Slowhttptest',
               'DoS slowloris', 'FTP-Patator', 'Heartbleed', 'PortScan']
     float_features = [float(x) for x in request.form.values()]
+    float_features = np.array(float_features)
+    float_features = float_features.reshape(1, -1)
     print(float_features)
     scaled_data = scaler.fit_transform(float_features)
     features = [np.array(float_features)]
