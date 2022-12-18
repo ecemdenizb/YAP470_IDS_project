@@ -82,21 +82,21 @@ decoder = tf.keras.Sequential([
     Dense(32, activation='relu'),
     Dense(78, activation='sigmoid')])(encoder)
 autoencoder = tf.keras.Model(inputs=input, outputs=decoder)
-autoencoder.compile(optimizer='adam', loss=tf.keras.losses.MeanAbsoluteError())
+autoencoder.compile(optimizer='adam', loss=tf.keras.losses.MeanSquaredError())
 # Autoencoder eğitme
 print("Autoencoder Training...")
 history = autoencoder.fit(x_train, x_train,
                           epochs=11,
-                          batch_size=64,
-                          validation_split=0.1,
+                          batch_size=20,
+                          validation_split=0.2,
                           shuffle=True)
 print("Training Complete.")
 print("_____________________________________________________________________")
 # Test datasını reconstruct etme
 reconstruct = autoencoder.predict(x_test)
 print("_____________________________________________________________________")
-reconstruct_loss = tf.keras.losses.mae(reconstruct, x_test)
-threshold = np.percentile(reconstruct_loss, 98)
+reconstruct_loss = tf.keras.losses.mse(reconstruct, x_test)
+threshold = np.percentile(reconstruct_loss, 85)
 print("Threshold: ", threshold)
 print("_____________________________________________________________________")
 
@@ -104,7 +104,7 @@ print("_____________________________________________________________________")
 def predict(model, data, threshold):
     # reconstructions = model(data)
     reconstructions = model.predict(data)
-    loss = tf.keras.losses.mae(reconstructions, data)
+    loss = tf.keras.losses.mse(reconstructions, data)
     prediction = []
     for i in range(len(loss)):
         if loss[i] >= threshold:
@@ -128,7 +128,7 @@ print("y_test:")
 print(y_test[0:10])
 print("Model Stats: ")
 print("_____________________________________________________________________")
-print_stats(preds, y_test)
+print_stats(preds.astype(bool), y_test.astype(bool))
 print("_____________________________________________________________________")
 # XGBoost data hazırlama
 xgb_x = []
@@ -140,22 +140,31 @@ for i in range(len(x_test)):
 xgb_x = np.array(xgb_x)
 xgb_y = np.array(xgb_y)
 
+a = le.inverse_transform(xgb_y)
+le2 = preprocessing.LabelEncoder()
+xgb_y = le2.fit_transform(a)
+
 x_train2, x_test2, y_train2, y_test2 = train_test_split(xgb_x, xgb_y,
-                                                        test_size=0.20,
+                                                        test_size=0.25,
                                                         random_state=12345)
 
 attack_predictor = xgb.XGBClassifier(n_estimators=100,
                                      max_depth=1, learning_rate=0.2, verbosity=0,
-                                     objective='multi:softmax')
+                                     objective='multi:softmax',
+                                     use_label_encoder=False)
 
+print("XGBoost Cross Validation...")
 cv = RepeatedStratifiedKFold(n_splits=5, random_state=12345)
 n_scores = cross_val_score(attack_predictor, x_train2, y_train2, scoring='accuracy',
                            cv=cv, error_score='raise')
+print("CV Complete.")
 
 print('Accuracy: %.3f (%.3f)' % (np.mean(n_scores), np.std(n_scores)))
 print("____________________________________________ \n \n")
 
+print("XGBoost Training...")
 attack_predictor.fit(x_train2, y_train2)
+print("Training Complete.")
 attack_preds = attack_predictor.predict(x_test2)
 
 attack_predictor.score(x_test2, y_test2)
@@ -169,7 +178,10 @@ print("")
 print("Accuracy Score: ", accuracy_score(y_test2, attack_preds))
 print("____________________________________________ \n \n")
 
-LABELS = le.inverse_transform(y_test2)
+a = np.unique(y_test2)
+a = le2.inverse_transform(a)
+
+LABELS = a
 conf_matrix = confusion_matrix(y_test2, attack_preds)
 plt.figure(figsize=(12, 12))
 sns.heatmap(conf_matrix, xticklabels=LABELS,
@@ -178,3 +190,11 @@ plt.title("Attack Type Classification")
 plt.ylabel('True class')
 plt.xlabel('Predicted class')
 plt.show()
+
+print("Pickling Models...")
+pickle.dump(scaler, open('scaler.pkl', 'wb'))
+pickle.dump(autoencoder, open('autoencoder.pkl', 'wb'))
+pickle.dump(attack_predictor, open('attack_predictor.pkl', 'wb'))
+print("Pickle Complete.")
+
+
